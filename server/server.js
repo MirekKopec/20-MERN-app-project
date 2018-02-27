@@ -107,6 +107,7 @@ const renderError = err => {
 };
 
 // Server Side Rendering based on routes matched by React-router.
+
 app.use((req, res, next) => {
   match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
     if (err) {
