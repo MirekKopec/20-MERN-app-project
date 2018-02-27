@@ -3,6 +3,7 @@ import callApi from '../../util/apiCaller';
 // Export Constants
 export const ADD_POST = 'ADD_POST';
 export const ADD_POSTS = 'ADD_POSTS';
+export const EDIT_POST = 'EDIT_POST';
 export const DELETE_POST = 'DELETE_POST';
 
 // Export Actions
@@ -43,6 +44,26 @@ export function fetchPosts() {
 export function fetchPost(cuid) {
   return (dispatch) => {
     return callApi(`posts/${cuid}`).then(res => dispatch(addPost(res.post)));
+  };
+}
+
+export function editPost(cuid, post) {
+  return {
+    type: EDIT_POST,
+    cuid,
+    post,
+  };
+}
+
+export function editPostRequest(cuid, post) {
+  return (dispatch) => {
+    return callApi(`posts/${cuid}`, 'put', {
+      post: {
+        name: post.name,
+        title: post.title,
+        content: post.content,
+      },
+    }).then(() => dispatch(editPost(cuid, post)));
   };
 }
 
