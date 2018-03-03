@@ -7,23 +7,6 @@
     float: right;
 }
 
-.thumb-button {
-    background: #03A9F4;
-    border-radius: 1000px;
-    border: none;
-    color: #FFF;
-    display: inline-block;
-    padding: 8px 8px;
-    font-size: 12px;
-    margin: 5px 5px;
-    text-decoration: none;
-}
-
-button:focus {
-    outline: 0 !important;
-    box-shadow: none;
-};
-
 .form {
     display: none;
     background: #FAFAFA;
